@@ -1,8 +1,8 @@
-# myblogvue
+# blogIt
 
-用于技术分享和总结的个人博客，兼容pc和移动端，用户可通过邮箱注册，邮箱验证通过后，可以登录博客，实现收藏点赞以及留言评论回复等功能，还可以展示个人链接，未登录状态可以以游客方式留言
+找个后端小项目做做，弄个小博客，前端偷个懒，从别人的成果开始，前端fork自[Aimee](https://github.com/Aimee1608/myblogvue),感谢！
 
-使用 vue.js 框架和Element UI来实现前端组件及数据交互，使用 webpack 构建，另外使用shCore.js实现代码样式
+如果有前端有新的想法大家也可以一起改造一波。我这边打算弄java做个后端。
 
 > A Vue.js project
 
