@@ -8,47 +8,47 @@
 				<div class="headBox">
 					<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" :router="true">
 						<el-menu-item index="/Home"><i class="fa fa-wa fa-home"></i> 首页</el-menu-item>
-						<el-submenu index="/Share">
-							<template slot="title"><i class="fa fa-wa fa-archive"></i> 分类</template>
-							<el-menu-item v-for="(item,index) in classListObj" :key="'class1'+index" :index="'/Share?classId='+item.class_id">{{item.cate_name}}</el-menu-item>
-						</el-submenu>
-						<el-submenu index="/Aboutme">
-							<template slot="title"><i class="fa fa-wa fa-flask"></i> 实验室</template>
-							<el-menu-item v-for="(item,index) in projectList" :key="'class2'+index" index=""><a :href="item.nav_url" target="_blank">{{item.nav_name}}</a></el-menu-item>
-						</el-submenu>
-						<el-menu-item index="/Reward"><i class="fa fa-wa fa-cny"></i> 赞赏</el-menu-item>
-						<el-menu-item index="/Friendslink"><i class="fa fa-wa fa-users"></i> 伙伴</el-menu-item>
-						<el-menu-item index="/Message"><i class="fa fa-wa fa-pencil"></i> 留言板</el-menu-item>
-						<el-menu-item index="/Aboutme"><i class="fa fa-wa fa-vcard"></i> 关于</el-menu-item>
-						<div index="" class="pcsearchbox">
-							<i class="el-icon-search pcsearchicon"></i>
-							<div class="pcsearchinput" :class="input?'hasSearched':''">
-								<el-input placeholder="搜索" icon="search" v-model="input" :on-icon-click="searchEnterFun" @keyup.enter.native="searchEnterFun" @change="searchChangeFun">
-								</el-input>
-							</div>
-						</div>
-						<div class="userInfo">
-							<div v-show="!haslogin" class="nologin">
-								<a href="javascript:void(0);" @click="logoinFun(1)">登录&nbsp;</a>|<a href="javascript:void(0);" @click="logoinFun(0)">&nbsp;注册</a>
-							</div>
-							<div v-show="haslogin" class="haslogin">
-								<i class="fa fa-fw fa-user-circle userImg"></i>
-								<ul class="haslogin-info">
-									<li>
-										<a href="#/UserInfo">个人中心</a>
-									</li>
-									<li>
-										<a href="#/LikeCollect?like=1">喜欢列表</a>
-									</li>
-									<li>
-										<a href="#/LikeCollect?like=2">收藏列表</a>
-									</li>
-									<li>
-										<a href="javascript:void(0);" @click="userlogout">退出登录</a>
-									</li>
-								</ul>
-							</div>
-						</div>
+<!--						<el-submenu index="/Share">-->
+<!--							<template slot="title"><i class="fa fa-wa fa-archive"></i> 分类</template>-->
+<!--							<el-menu-item v-for="(item,index) in classListObj" :key="'class1'+index" :index="'/Share?classId='+item.class_id">{{item.cate_name}}</el-menu-item>-->
+<!--						</el-submenu>-->
+<!--						<el-submenu index="/Aboutme">-->
+<!--							<template slot="title"><i class="fa fa-wa fa-flask"></i> 实验室</template>-->
+<!--							<el-menu-item v-for="(item,index) in projectList" :key="'class2'+index" index=""><a :href="item.nav_url" target="_blank">{{item.nav_name}}</a></el-menu-item>-->
+<!--						</el-submenu>-->
+<!--						<el-menu-item index="/Reward"><i class="fa fa-wa fa-cny"></i> 赞赏</el-menu-item>-->
+<!--						<el-menu-item index="/Friendslink"><i class="fa fa-wa fa-users"></i> 伙伴</el-menu-item>-->
+<!--						<el-menu-item index="/Message"><i class="fa fa-wa fa-pencil"></i> 留言板</el-menu-item>-->
+<!--						<el-menu-item index="/Aboutme"><i class="fa fa-wa fa-vcard"></i> 关于</el-menu-item>-->
+<!--						<div index="" class="pcsearchbox">-->
+<!--							<i class="el-icon-search pcsearchicon"></i>-->
+<!--							<div class="pcsearchinput" :class="input?'hasSearched':''">-->
+<!--								<el-input placeholder="搜索" icon="search" v-model="input" :on-icon-click="searchEnterFun" @keyup.enter.native="searchEnterFun" @change="searchChangeFun">-->
+<!--								</el-input>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div class="userInfo">-->
+<!--							<div v-show="!haslogin" class="nologin">-->
+<!--								<a href="javascript:void(0);" @click="logoinFun(1)">登录&nbsp;</a>|<a href="javascript:void(0);" @click="logoinFun(0)">&nbsp;注册</a>-->
+<!--							</div>-->
+<!--							<div v-show="haslogin" class="haslogin">-->
+<!--								<i class="fa fa-fw fa-user-circle userImg"></i>-->
+<!--								<ul class="haslogin-info">-->
+<!--									<li>-->
+<!--										<a href="#/UserInfo">个人中心</a>-->
+<!--									</li>-->
+<!--									<li>-->
+<!--										<a href="#/LikeCollect?like=1">喜欢列表</a>-->
+<!--									</li>-->
+<!--									<li>-->
+<!--										<a href="#/LikeCollect?like=2">收藏列表</a>-->
+<!--									</li>-->
+<!--									<li>-->
+<!--										<a href="javascript:void(0);" @click="userlogout">退出登录</a>-->
+<!--									</li>-->
+<!--								</ul>-->
+<!--							</div>-->
+<!--						</div>-->
 					</el-menu>
 				</div>
 				<!-- 移动端导航 -->
@@ -62,45 +62,45 @@
 									<template slot="title"><i class="fa fa-wa fa-archive"></i> 分类</template>
 									<el-menu-item v-for="(item,index) in classListObj" :key="'class1'+index" :index="'/Share?classId='+item.class_id">{{item.cate_name}}</el-menu-item>
 								</el-submenu>
-								<el-submenu index="2">
-									<template slot="title"><i class="fa fa-wa fa-flask"></i> 实验室</template>
-									<el-menu-item v-for="(item,index) in projectList" :key="'class2'+index" index=""><a :href="item.nav_url" target="_blank">{{item.nav_name}}</a></el-menu-item>
-								</el-submenu>
-								<el-menu-item index="/Reward"><i class="fa fa-wa fa-cny"></i> 赞赏</el-menu-item>
-								<el-menu-item index="/Friendslink"><i class="fa fa-wa fa-users"></i> 伙伴</el-menu-item>
-								<el-menu-item index="/Message"><i class="fa fa-wa fa-pencil"></i> 留言板</el-menu-item>
-								<el-menu-item index="/Aboutme"><i class="fa fa-wa fa-vcard"></i> 关于</el-menu-item>
-								<el-menu-item v-show="!haslogin" index="" @click="logoinFun(1)">登录</el-menu-item>
-								<el-menu-item v-show="!haslogin" index="" @click="logoinFun(0)">注册</el-menu-item>
-								<el-submenu v-show="haslogin" index="3">
-									<template slot="title"><i class="fa fa-wa fa-user-circle-o"></i> 我的</template>
-									<el-menu-item index="/UserInfo">个人中心</el-menu-item>
-									<el-menu-item index="/LikeCollect?like=1">喜欢的文章</el-menu-item>
-									<el-menu-item index="/LikeCollect?like=2">收藏的文章</el-menu-item>
-									<el-menu-item index="" @click="userlogout">退出登录</el-menu-item>
-								</el-submenu>
+<!--								<el-submenu index="2">-->
+<!--									<template slot="title"><i class="fa fa-wa fa-flask"></i> 实验室</template>-->
+<!--									<el-menu-item v-for="(item,index) in projectList" :key="'class2'+index" index=""><a :href="item.nav_url" target="_blank">{{item.nav_name}}</a></el-menu-item>-->
+<!--								</el-submenu>-->
+<!--								<el-menu-item index="/Reward"><i class="fa fa-wa fa-cny"></i> 赞赏</el-menu-item>-->
+<!--								<el-menu-item index="/Friendslink"><i class="fa fa-wa fa-users"></i> 伙伴</el-menu-item>-->
+<!--								<el-menu-item index="/Message"><i class="fa fa-wa fa-pencil"></i> 留言板</el-menu-item>-->
+<!--								<el-menu-item index="/Aboutme"><i class="fa fa-wa fa-vcard"></i> 关于</el-menu-item>-->
+<!--								<el-menu-item v-show="!haslogin" index="" @click="logoinFun(1)">登录</el-menu-item>-->
+<!--								<el-menu-item v-show="!haslogin" index="" @click="logoinFun(0)">注册</el-menu-item>-->
+<!--								<el-submenu v-show="haslogin" index="3">-->
+<!--									<template slot="title"><i class="fa fa-wa fa-user-circle-o"></i> 我的</template>-->
+<!--									<el-menu-item index="/UserInfo">个人中心</el-menu-item>-->
+<!--									<el-menu-item index="/LikeCollect?like=1">喜欢的文章</el-menu-item>-->
+<!--									<el-menu-item index="/LikeCollect?like=2">收藏的文章</el-menu-item>-->
+<!--									<el-menu-item index="" @click="userlogout">退出登录</el-menu-item>-->
+<!--								</el-submenu>-->
 							</el-menu>
 						</el-collapse-transition>
-						<div class="searchBox">
-							<el-input placeholder="" icon="search" v-model="input" @keyup.enter.native="searchEnterFun" :on-icon-click="searchEnterFun" @change="searchChangeFun">
-							</el-input>
-						</div>
+<!--						<div class="searchBox">-->
+<!--							<el-input placeholder="" icon="search" v-model="input" @keyup.enter.native="searchEnterFun" :on-icon-click="searchEnterFun" @change="searchChangeFun">-->
+<!--							</el-input>-->
+<!--						</div>-->
 					</div>
 				</div>
 			</el-col>
 		</el-row>
 	</div>
-	<div class="headImgBox" :style="{backgroundImage:this.$store.state.themeObj.top_image?'url('+this.$store.state.themeObj.top_image+')':'url(static/img/headbg05.jpg)'}">
-		<div class="scene">
-			<div><span id="luke"></span></div>
-		</div>
+	<div class="headImgBox" :style="{backgroundImage:this.$store.state.themeObj.top_image?'url('+this.$store.state.themeObj.top_image+') ':'url(static/img/header.png)'}">
+<!--		<div class="scene">-->
+<!--			<div><span id="luke"></span></div>-->
+<!--		</div>-->
 		<div class="h-information">
 			<a href="#/Aboutme">
-                    <img :src="this.$store.state.themeObj.head_portrait?this.$store.state.themeObj.head_portrait:'static/img/tou.png'" alt="">
+                    <img :src="this.$store.state.themeObj.head_portrait?this.$store.state.themeObj.head_portrait:'static/img/avatar.png'" alt="">
                 </a>
 			<h2 class="h-description">
                     <a href="#/Aboutme">
-                        {{this.$store.state.themeObj.autograph?this.$store.state.themeObj.autograph:"Write the Code. Change the World."}}
+                        {{this.$store.state.themeObj.autograph?this.$store.state.themeObj.autograph:"Dream It!"}}
                     </a>
                 </h2>
 		</div>
@@ -253,9 +253,9 @@ export default {
 		var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
 		var onVisibilityChange = function() {
 			if (document[hiddenProperty]) { //被隐藏
-				document.title = '藏好啦(つд⊂)';
+				document.title = 'See You(つд⊂)';
 			} else {
-				document.title = '被发现啦(*´∇｀*)'; //当前窗口打开
+				document.title = 'You coming(*´∇｀*)'; //当前窗口打开
 				if (that.$route.path != '/DetailShare') {
 					if (localStorage.getItem('userInfo')) {
 						that.haslogin = true;
@@ -285,7 +285,7 @@ export default {
 		// console.log('是否是慧慧',this.$store.state.themeObj.user_start);
 		var that = this;
 		var timer = setTimeout(function() {
-			Typeit(that.$store.state.themeObj.user_start, "#luke"); //打字机效果
+			//Typeit(that.$store.state.themeObj.user_start, "#luke"); //打字机效果
 			clearTimeout(timer);
 		}, 500);
 	}
@@ -572,22 +572,22 @@ export default {
 /*头部背景图*/
 
 .headImgBox {
-	height: 650px;
+	height: 500px;
 	position: relative;
 	width: 100%;
 	background-size: cover;
-	background-position: center 50%;
+	background-position: center 1%;
 	background-repeat: no-repeat;
-	margin-bottom: 90px;
+	margin-bottom: 210px;
 }
 
 .h-information {
 	text-align: center;
-	width: 70%;
+	width: 80%;
 	margin: auto;
 	position: relative;
-	top: 480px;
-	padding: 40px 0;
+	top: 500px;
+	padding: 20px 0;
 	font-size: 16px;
 	opacity: 0.98;
 	background: rgba(230, 244, 249, 0.8);

@@ -55,6 +55,7 @@ time, mark, audio, video {
 body{
   font-family:Arial,"STHeiti", Helvetica, sans-serif;
   background:#efefef;
+  /*background-image: url("http://www.mangoya.cn/static/img/bg-content.jpg?v=9d591ba");*/
   font-size:14px;
   color:#444!important;
   min-height:100vh;

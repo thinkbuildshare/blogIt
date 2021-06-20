@@ -3,45 +3,45 @@
     <div class="rightlistBox">
         <section >
             <div class="r1-head">
-                <img :src="this.$store.state.themeObj.center_smailimg?this.$store.state.themeObj.center_smailimg:'static/img/headtou02.jpg'" alt="">
+                <img :src="this.$store.state.themeObj.center_smailimg?this.$store.state.themeObj.center_smailimg:'static/img/right.png'" alt="">
                 <h1 v-if="this.$store.state.themeObj.user_start!=0">
-                    <span>女王</span>Aimee
+                    <span>Iron</span>Man
                 </h1>
             </div>
             <div class="r1-body">
-                <p>你能抓到我么？</p>
+                <p>What Man am I?</p>
                 <div class="catch-me" >
                     <div class="">
                         <el-tooltip  class="item"  content="Github" placement="top" >
                             <a  :href="catchMeObj[isAimee].git" target="_blank" ><i class="fa fa-fw fa-github"></i></a>
                         </el-tooltip>
-                        <el-tooltip class="item" effect="dark" content="QQ" placement="top">
-                            <a  :href="catchMeObj[isAimee].qq" target="_blank"><i class="fa fa-fw fa-qq"></i></a>
-                        </el-tooltip>
-                        <el-tooltip class="item" effect="dark" content="微博" placement="top">
-                            <a :href="catchMeObj[isAimee].sina" target="_blank"><i class="fa fa-fw fa-weibo"></i></a>
-                        </el-tooltip>
+<!--                        <el-tooltip class="item" effect="dark" content="QQ" placement="top">-->
+<!--                            <a  :href="catchMeObj[isAimee].qq" target="_blank"><i class="fa fa-fw fa-qq"></i></a>-->
+<!--                        </el-tooltip>-->
+<!--                        <el-tooltip class="item" effect="dark" content="微博" placement="top">-->
+<!--                            <a :href="catchMeObj[isAimee].sina" target="_blank"><i class="fa fa-fw fa-weibo"></i></a>-->
+<!--                        </el-tooltip>-->
                     </div>
                     <div class="">
                         <el-tooltip class="item" effect="dark" content="微信" placement="top">
                             <a :href="catchMeObj[isAimee].wechat" target="_blank"><i class="fa fa-fw fa-wechat"></i></a>
                         </el-tooltip>
-                        <el-tooltip class="item" effect="dark" content="CSDN" placement="top">
-                            <a :href="catchMeObj[isAimee].csdn" target="_blank"><i class="">C</i></a>
-                        </el-tooltip>
+<!--                        <el-tooltip class="item" effect="dark" content="CSDN" placement="top">-->
+<!--                            <a :href="catchMeObj[isAimee].csdn" target="_blank"><i class="">C</i></a>-->
+<!--                        </el-tooltip>-->
                         <el-tooltip class="item" effect="dark" content="简历" placement="top">
                             <a :href="catchMeObj[isAimee].job" target="_blank"><i class="fa fa-fw fa-file-word-o"></i></a>
                         </el-tooltip>
-                        <el-tooltip class="item" effect="dark" content="更多" placement="top">
-                            <a href="#/Aboutme" ><i class="el-icon-more"></i></a>
-                        </el-tooltip>
+<!--                        <el-tooltip class="item" effect="dark" content="更多" placement="top">-->
+<!--                            <a href="#/Aboutme" ><i class="el-icon-more"></i></a>-->
+<!--                        </el-tooltip>-->
                     </div>
                 </div>
             </div>
         </section>
         <section :class="fixDo?'rs2 fixed':'rs2'" @click="lovemeFun">
             <p>
-                Do you like me?
+                心动一刻，一键传达
             </p>
             <div class="">
                 <i :class="loveme?'heart active':'heart'" ></i>
@@ -49,9 +49,19 @@
             </div>
         </section>
         <section></section>
+      <section class="rs4">
+        <h2 class="ui label">
+          最近话题
+        </h2>
+        <ul>
+          <li v-for="(item,index) in browseList" :key="'browseList'+index">
+            <a :href="'#/DetailShare?aid='+item.id" target="_blank">{{item.title}}</a> —— {{item.browse_count}} 次围观
+          </li>
+        </ul>
+      </section>
         <section class="rs3" >
             <h2 class="ui label">
-                这些人都排着队来跟我说话
+                最新讨论
             </h2>
             <ul class="rs3-textwidget">
                 <li class="rs3-item" v-for="(item,index) in artCommentList" :key="'artCommentList'+index">
@@ -67,9 +77,10 @@
                 </li>
             </ul>
         </section>
+
         <section class="rs4">
             <h2 class="ui label">
-                大家都排队来看这些
+                最近文章
             </h2>
             <ul>
                 <li v-for="(item,index) in browseList" :key="'browseList'+index">
@@ -78,12 +89,12 @@
             </ul>
         </section>
         <!-- 右侧上滑小图片 -->
-        <div  v-if="this.$store.state.themeObj.user_start!=0" :class="gotoTop?'toTop hidden':'toTop goTop hidden'" @click="toTopfun">
-            <img :src="this.$store.state.themeObj.right_img?this.$store.state.themeObj.right_img:'static/img/scroll.png'" alt="">
-        </div>
-        <div v-else :class="gotoTop?'toTophui hidden':'toTophui goTophui hidden'" @click="toTopfun">
-            <img :src="this.$store.state.themeObj.right_img?this.$store.state.themeObj.right_img:'static/img/scroll.png'" alt="">
-        </div>
+<!--        <div  v-if="this.$store.state.themeObj.user_start!=0" :class="gotoTop?'toTop hidden':'toTop goTop hidden'" @click="toTopfun">-->
+<!--            <img :src="this.$store.state.themeObj.right_img?this.$store.state.themeObj.right_img:'static/img/scroll.png'" alt="">-->
+<!--        </div>-->
+<!--        <div v-else :class="gotoTop?'toTophui hidden':'toTophui goTophui hidden'" @click="toTopfun">-->
+<!--            <img :src="this.$store.state.themeObj.right_img?this.$store.state.themeObj.right_img:'static/img/scroll.png'" alt="">-->
+<!--        </div>-->
     </div>
 </template>
 
@@ -117,9 +128,14 @@ import {ShowBrowseCount,ShowArtCommentCount,showLikeData,GetLike} from '../utils
                         wechat: 'static/img/aimee/erwm.jpg',
                         csdn: 'http://blog.csdn.net/Aimee1608',
                         job: 'http://aimee.mangoya.cn'
+                    },
+                    Hyman: {
+                      git: 'https://github.com/hymanchengo',
+                      wechat: 'static/img/hyman/erwm.jpg',
+                      job: 'http://www.baidu.com'
                     }
                 },
-                isAimee:this.$store.state.themeObj.user_start!=0?"Aimee":"Qinlh"//判断是哪个的博客
+                isAimee:this.$store.state.themeObj.user_start!=0?"Hyman":""//判断是哪个的博客
             }
         },
         methods: { //事件处理器
