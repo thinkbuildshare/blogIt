@@ -75,7 +75,7 @@ import {getArticleInfo,getArtLikeCollect,initDate} from '../utils/server.js'
                 collectArt:false,//是否收藏
                 haslogin:false,//是否已经登录
                 userId:'',//用户id
-                create_time:''
+                create_time:'2021-06-21'
             }
         },
         methods: { //事件处理器

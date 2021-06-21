@@ -13,8 +13,8 @@
         </div>
         <el-col :span="24" class="s-item tcommonBox" v-for="(item,index) in articleList" :key="'article'+index">
             <span class="s-round-date">
-                <span class="month" v-html="showInitDate(item.create_time,'month')+'月'"></span>
-                <span class="day" v-html="showInitDate(item.create_time,'date')"></span>
+                <span class="month" v-html="showInitDate(item.createTime,'month')+'月'"></span>
+                <span class="day" v-html="showInitDate(item.createTime,'date')"></span>
             </span>
             <header>
                 <h1>
@@ -24,7 +24,7 @@
                 </h1>
                 <h2>
                     <i class="fa fa-fw fa-user"></i>发表于
-                    <i class="fa fa-fw fa-clock-o"></i><span v-html="showInitDate(item.create_time,'all')">{{showInitDate(item.create_time,'all')}}</span> •
+                    <i class="fa fa-fw fa-clock-o"></i><span v-html="showInitDate(item.createTime,'all')">{{showInitDate(item.createTime,'all')}}</span> •
                     <i class="fa fa-fw fa-eye"></i>{{item.browse_count}} 次围观 •
                     <i class="fa fa-fw fa-comments"></i>活捉 {{item.comment_count}} 条 •
                     <span class="rateBox">
@@ -123,17 +123,26 @@ import {ShowArticleAll,ArtClassData,initDate} from '../utils/server.js'
                 that.artId = initpage ? 0 : that.artId;
                 ShowArticleAll(that.artId,that.sendId,that.keywords,that.level,(result)=>{
                     // console.log(result);
-                    if(result.code==1001){
-                        var msg = result.data;
-                        if(msg.length>0&&msg.length<10){
-                            that.hasMore = false
-                        }else{
-                            that.hasMore = true;
-                        }
-                        that.articleList = initpage ? msg : that.articleList.concat(msg);
-                        that.artId = msg[msg.length-1].id;
-                        // console.log(that.artId);
-                    }else{
+                    // if(result.code==1001){
+                    //     var msg = result.data;
+                    //     if(msg.length>0&&msg.length<10){
+                    //         that.hasMore = false
+                    //     }else{
+                    //         that.hasMore = true;
+                    //     }
+                    //     that.articleList = initpage ? msg : that.articleList.concat(msg);
+                    //     that.artId = msg[msg.length-1].id;
+                    //     // console.log(that.artId);
+                    // }
+                  if(result){
+                    let msg = result
+                   that.hasMore = false;
+                    that.articleList = initpage ? msg : that.articleList.concat(msg);
+                    that.artId = msg[msg.length-1].id;
+                    // console.log(that.artId);
+                  }
+
+                    else{
                         that.hasMore = false;
                         that.articleList = initpage ? [] : that.articleList;
                     }
